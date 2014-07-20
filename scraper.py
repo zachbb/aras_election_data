@@ -7,7 +7,7 @@ import simplejson
 import urllib2
 
 
-QUERY = 'aras11 OR aras OR president'
+QUERY = '#prochoice OR #prolife'
 GEOINFO = '53.26521293124656,-9.063720703125,257km'
 RESULTS_PER_PAGE = '100'
 LANGUAGE = 'en'
@@ -24,7 +24,7 @@ for page in range(1, NUM_PAGES+1):
             data['text'] = result['text']
             data['from_user'] = result['from_user']
             print data['from_user'], data['text']
-            scraperwiki.sqlite.save(["id"], data) 
+            scraperwiki.sqlite.save(["id"], text, data) 
     except:
         print 'Oh dear, failed to scrape %s' % base_url
         
